@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bf34daf3-e667-4d14-8280-93f5fdc473eb" name="Default" comment="" />
+    <list default="true" id="bf34daf3-e667-4d14-8280-93f5fdc473eb" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="Hammer.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -92,8 +95,8 @@
       <file leaf-file-name="HammerContext.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/src/main/java/com/hammer/core/context/HammerContext.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.36813188">
-              <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.58855885">
+              <caret line="43" column="75" selection-start-line="43" selection-start-column="75" selection-end-line="43" selection-end-column="75" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -149,6 +152,14 @@
         <option value="spring-beans.schema" />
         <option value="Class" />
       </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
     </option>
   </component>
   <component name="GradleLocalSettings">
@@ -220,7 +231,7 @@
     <option name="width" value="1936" />
     <option name="height" value="1096" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -920,12 +931,12 @@
       <workItem from="1505709082348" duration="5205000" />
       <workItem from="1505737482448" duration="681000" />
       <workItem from="1506083557045" duration="11266000" />
-      <workItem from="1506121712014" duration="219000" />
+      <workItem from="1506121712014" duration="642000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28411000" />
+    <option name="totallyTimeSpent" value="28834000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1096" extended-state="6" />
@@ -1405,8 +1416,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/main/java/com/hammer/core/context/HammerContext.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36813188">
-          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.58855885">
+          <caret line="43" column="75" selection-start-line="43" selection-start-column="75" selection-end-line="43" selection-end-column="75" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
