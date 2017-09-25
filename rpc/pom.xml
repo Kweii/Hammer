@@ -11,5 +11,58 @@
 
     <artifactId>rpc</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+            <version>3.4.0</version>
+        </dependency>
 
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>5.0.0.Alpha2</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.xolstice.maven.plugins</groupId>
+                <artifactId>protobuf-maven-plugin</artifactId>
+                <version>0.5.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <!--*.proto文件位置-->
+                    <protoSourceRoot>${project.basedir}/src/main/resources/protoc</protoSourceRoot>
+                    <!--代码生成路径-->
+                    <outputDirectory>${project.build.sourceDirectory}</outputDirectory>
+                    <!--设置是否在生成java文件之前清空outputDirectory的文件，默认值为true，设置为false时也会覆盖同名文件-->
+                    <clearOutputDirectory>false</clearOutputDirectory>
+                    <!--临时文件路径-->
+                    <temporaryProtoFileDirectory>${project.build.directory}/protoc-dependencies</temporaryProtoFileDirectory>
+
+                    <attachProtoSources>true</attachProtoSources>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                            <goal>test-compile</goal>
+                        </goals>
+                        <!--也可以设置成局部变量，执行compile或test-compile时才执行-->
+                        <!--<configuration>-->
+                        <!--<protoSourceRoot>${project.basedir}/src/main/resources/proto</protoSourceRoot>-->
+                        <!--<outputDirectory>${project.build.directory}/generated-sources/protoc/java</outputDirectory>-->
+                        <!--<temporaryProtoFileDirectory>${project.build.directory}/protoc-dependencies</temporaryProtoFileDirectory>-->
+                        <!--</configuration>-->
+                    </execution>
+                </executions>
+            </plugin>
+
+
+
+        </plugins>
+    </build>
 </project>

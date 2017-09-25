@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package com.hammer.rpc.proto;
+option java_outer_classname="RpcPacketHolder";
+option optimize_for=LITE_RUNTIME;
+
+/*远程调用数据包*/
+message RpcPacket{
+    PacketHeader header=1;
+    PacketBody body=2;
+}
+
+ /*数据包头*/
+message PacketHeader{
+    int32 crcCode = 1;
+    int32 length=2;
+    int64 sessionId=3;
+    PacketType packetType=4;
+    int32 priority=5;
+    repeated Entry attach=6;
+}
+
+
+/*模拟Map.Entry*/
+message Entry{
+    string key=1;
+    bytes value=2;
+}
+
+/*数据包类型*/
+enum PacketType{
+    NOTHING=0;
+
+    HANDSHAKE_SYNC=11;
+    HANDSHAKE_ACK_REFUSE=12;
+    HANDSHAKE_ACK_ACCEPT=13;
+
+    HEARTBEAT_REQ=21;
+    HEARTBEAT_RESP=22;
+
+    BUSINESS_MSG_REQ=31;
+    BUSINESS_MSG_RESP=32;
+}
+
+
+/*数据包体*/
+message PacketBody{
+    bytes msg=1;
+}
+
+
