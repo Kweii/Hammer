@@ -46,6 +46,8 @@ public class HammerBeanDefinitionParser implements BeanDefinitionParser {
             String interfaze = element.getAttribute("interface");
             String ref = element.getAttribute("ref");
             String alias = element.getAttribute("alias");
+            boolean supportDynamicAlias = Boolean.parseBoolean(element.getAttribute("supportDynamicAlias"));
+            float threshold = Float.parseFloat(element.getAttribute("threshold"));
 
             ProviderBean providerBean = new ProviderBean();
             providerBean.setInterfaze(interfaze).setRef(ref).setAlias(alias);
@@ -54,6 +56,8 @@ public class HammerBeanDefinitionParser implements BeanDefinitionParser {
             beanDefinition.getPropertyValues().addPropertyValue("interfaze", interfaze);
             beanDefinition.getPropertyValues().addPropertyValue("ref", ref);
             beanDefinition.getPropertyValues().addPropertyValue("alias", alias);
+            beanDefinition.getPropertyValues().addPropertyValue("supportDynamicAlias", supportDynamicAlias);
+            beanDefinition.getPropertyValues().addPropertyValue("threshold", threshold);
             parserContext.getRegistry().registerBeanDefinition(beanId, beanDefinition);
 
         }else if (this.beanClass.equals(ConsumerBean.class)){

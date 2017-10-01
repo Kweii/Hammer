@@ -22,13 +22,21 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="consumer" />
         <module name="core" />
+        <module name="monitor" />
+        <module name="provider" />
+        <module name="registry" />
         <module name="rpc" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="consumer" target="1.5" />
       <module name="core" target="1.5" />
       <module name="Hammer" target="1.5" />
+      <module name="monitor" target="1.5" />
+      <module name="provider" target="1.5" />
+      <module name="registry" target="1.5" />
       <module name="rpc" target="1.5" />
     </bytecodeTargetLevel>
   </component>

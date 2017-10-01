@@ -13,6 +13,10 @@ public class ProviderBean {
     /*接口发布版本*/
     private String alias;
 
+    private boolean supportDynamicAlias;
+
+    private float threshold;
+
     public String buildKey(){
         return this.interfaze+"-"+this.alias;
     }
@@ -41,6 +45,24 @@ public class ProviderBean {
 
     public ProviderBean setAlias(String alias) {
         this.alias = alias;
+        return this;
+    }
+
+    public boolean isSupportDynamicAlias() {
+        return supportDynamicAlias;
+    }
+
+    public ProviderBean setSupportDynamicAlias(boolean supportDynamicAlias) {
+        this.supportDynamicAlias = supportDynamicAlias;
+        return this;
+    }
+
+    public float getThreshold() {
+        return threshold;
+    }
+
+    public ProviderBean setThreshold(float threshold) {
+        this.threshold = threshold;
         return this;
     }
 }

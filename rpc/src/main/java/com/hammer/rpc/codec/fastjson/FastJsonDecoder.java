@@ -1,13 +1,13 @@
-package com.hammer.rpc.endpoint.codec;
+package com.hammer.rpc.codec.fastjson;
 
 import com.alibaba.fastjson.JSONObject;
+import com.hammer.rpc.codec.AbstractDecoder;
 import com.hammer.rpc.msg.HammerMsg;
 import com.hammer.rpc.msg.body.*;
-import com.hammer.rpc.msg.common.MsgEnum;
+import com.hammer.rpc.msg.enums.MsgEnum;
 import com.hammer.rpc.msg.header.MsgHeader;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
@@ -16,8 +16,8 @@ import java.util.Map;
 /**
  * Created by gui on 2017/9/23.
  */
-public class HammerDecoder extends LengthFieldBasedFrameDecoder {
-    public HammerDecoder(int maxFrameLength, int lengthFieldOffset, int lengthFieldLength) {
+public class FastJsonDecoder extends AbstractDecoder {
+    public FastJsonDecoder(int maxFrameLength, int lengthFieldOffset, int lengthFieldLength) {
         super(maxFrameLength, lengthFieldOffset, lengthFieldLength);
     }
 
@@ -47,7 +47,7 @@ public class HammerDecoder extends LengthFieldBasedFrameDecoder {
     private MsgHeader decodeHeader(ByteBuf rcvBuffer) throws UnsupportedEncodingException {
         MsgHeader header = new MsgHeader();
         /*解码crcCode*/
-        header.setCrcCode(rcvBuffer.readInt());
+        //header.setCrcCode(rcvBuffer.readInt());
         /*解码消息长度*/
         header.setLength(rcvBuffer.readInt());
         /*解码消息类型*/
@@ -74,7 +74,7 @@ public class HammerDecoder extends LengthFieldBasedFrameDecoder {
             keySize = rcvBuffer.readInt();
             keyBytes = new byte[keySize];
             rcvBuffer.readBytes(keyBytes);
-            key = new String(keyBytes, HammerEncoder.ENCODE_CHAR_SET);
+            key = new String(keyBytes, FastJsonEncoder.ENCODE_CHAR_SET);
             /*******解码附件key结束*******/
 
             /*******解码附件value开始*******/

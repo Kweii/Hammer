@@ -1,6 +1,5 @@
 package com.hammer.core.proxy;
 
-import com.hammer.rpc.bean.Invocation;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -32,9 +31,10 @@ public class HammerInvocationHandler implements InvocationHandler {
         /*如果传进来的是一个接口，远程代理*/
         if (declaringClazz.isInterface()){
             String version = "1.0";
-            Invocation invocation = new Invocation(declaringClazz.getName(), method.getName(), method.getParameterTypes(), args, version);
-
-            return invocation.invoke();
+//            Invocation invocation = new Invocation(declaringClazz.getName(), method.getName(), method.getParameterTypes(), args, version);
+//
+//            return invocation.invoke();
+            return "xxxx";
         }
 
         /*如果传进来是一个已实现的具体类，不支持*/

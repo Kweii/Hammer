@@ -11,6 +11,10 @@
     <modules>
         <module>core</module>
         <module>rpc</module>
+        <module>provider</module>
+        <module>consumer</module>
+        <module>registry</module>
+        <module>monitor</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

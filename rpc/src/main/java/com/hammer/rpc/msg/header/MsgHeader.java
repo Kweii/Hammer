@@ -1,6 +1,6 @@
 package com.hammer.rpc.msg.header;
 
-import com.hammer.rpc.msg.common.MsgEnum;
+import com.hammer.rpc.msg.enums.MsgEnum;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,7 +9,7 @@ import java.util.Map;
  * Created by gui on 2017/9/23.
  */
 public class MsgHeader {
-    private int crcCode = 0xABC001;
+    public static final int crcCode = 0xABC001;
     private int length = -1;
     private MsgEnum msgEnum;
     private byte priority;
@@ -26,13 +26,9 @@ public class MsgHeader {
     }
 
     public int getCrcCode() {
-        return crcCode;
+        return this.crcCode;
     }
 
-    public MsgHeader setCrcCode(int crcCode) {
-        this.crcCode = crcCode;
-        return this;
-    }
 
     public int getLength() {
         return length;

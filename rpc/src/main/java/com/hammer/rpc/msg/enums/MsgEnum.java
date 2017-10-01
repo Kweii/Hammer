@@ -1,4 +1,4 @@
-package com.hammer.rpc.msg.common;
+package com.hammer.rpc.msg.enums;
 
 /**
  * Created by gui on 2017/9/23.

@@ -1,13 +1,13 @@
-package com.hammer.rpc.endpoint.codec;
+package com.hammer.rpc.codec.fastjson;
 
 import com.alibaba.fastjson.JSONObject;
+import com.hammer.rpc.codec.AbstractEncoder;
 import com.hammer.rpc.msg.HammerMsg;
 import com.hammer.rpc.msg.body.MsgBody;
 import com.hammer.rpc.msg.header.MsgHeader;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.handler.codec.MessageToMessageEncoder;
 
 import java.io.UnsupportedEncodingException;
 import java.util.List;
@@ -16,9 +16,9 @@ import java.util.Map;
 /**
  * Created by gui on 2017/9/23.
  */
-public class HammerEncoder extends MessageToMessageEncoder<HammerMsg> {
+public class FastJsonEncoder extends AbstractEncoder<HammerMsg> {
     /*长度位置的临时占位符*/
-    private static final byte[] TEMP_LENGTH_PLACE_HOLDER = new byte[4];
+    public static final byte[] TEMP_LENGTH_PLACE_HOLDER = new byte[4];
     /*HammerMsg的“长度”位置*/
     public static final int HAMMER_MSG_LENGTH_POS_IDX = 4;
 
