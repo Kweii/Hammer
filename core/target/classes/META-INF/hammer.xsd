@@ -19,6 +19,8 @@
             <xsd:attribute name="interface" type="xsd:string" use="required"/>
             <xsd:attribute name="ref" type="xsd:string" use="required"/>
             <xsd:attribute name="alias" type="xsd:string" use="required"/>
+            <xsd:attribute name="supportDynamicAlias" type="xsd:boolean" use="optional" default="false"/>
+            <xsd:attribute name="threshold" type="xsd:float" use="optional" default="100"/>
         </xsd:complexType>
     </xsd:element>
 
