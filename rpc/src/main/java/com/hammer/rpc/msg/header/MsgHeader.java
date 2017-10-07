@@ -5,8 +5,11 @@ import com.hammer.rpc.msg.enums.MsgEnum;
 import java.util.HashMap;
 import java.util.Map;
 
+
 /**
- * Created by gui on 2017/9/23.
+ * @Author 桂列华
+ * @Date 2017/10/6 8:33.
+ * @Email guiliehua@163.com
  */
 public class MsgHeader {
     public static final int crcCode = 0xABC001;

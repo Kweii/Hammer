@@ -22,10 +22,8 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="consumer" />
         <module name="core" />
         <module name="monitor" />
-        <module name="provider" />
         <module name="registry" />
         <module name="rpc" />
       </profile>

@@ -3,8 +3,9 @@ package com.hammer.rpc.msg.body;
 import java.util.Arrays;
 
 /**
- * 封装一个方法调用
- * Created by gui on 2017/9/16.
+ * @Author 桂列华
+ * @Date 2017/10/6 8:33.
+ * @Email guiliehua@163.com
  */
 public class ServiceInvocation implements MsgBody {
 

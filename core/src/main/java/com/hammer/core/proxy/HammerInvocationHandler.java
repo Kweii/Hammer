@@ -5,7 +5,9 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
 /**
- * Created by gui on 2017/9/16.
+ * @Author 桂列华
+ * @Date 2017/10/6 8:33.
+ * @Email guiliehua@163.com
  */
 public class HammerInvocationHandler implements InvocationHandler {
     private HammerInvocationHandler(){}

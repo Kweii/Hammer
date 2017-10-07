@@ -17,7 +17,9 @@ import org.w3c.dom.Element;
 import static com.hammer.core.constant.SpringConstant.*;
 
 /**
- * Created by gui on 2017/9/16.
+ * @Author 桂列华
+ * @Date 2017/10/6 8:33.
+ * @Email guiliehua@163.com
  */
 public class HammerBeanDefinitionParser implements BeanDefinitionParser {
     private Logger logger = LogManager.getLogger(HammerBeanDefinitionParser.class);

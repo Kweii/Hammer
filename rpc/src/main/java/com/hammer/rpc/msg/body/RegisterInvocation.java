@@ -11,4 +11,12 @@ import java.util.List;
  */
 public class RegisterInvocation implements MsgBody {
     List<ServiceVO> serviceVOList;
+
+    public RegisterInvocation(List<ServiceVO> serviceVOList) {
+        this.serviceVOList = serviceVOList;
+    }
+
+    public List<ServiceVO> getServiceVOList() {
+        return serviceVOList;
+    }
 }

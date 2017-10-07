@@ -11,15 +11,31 @@ import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
+
 /**
- * Created by gui on 2017/10/1.
+ * @Author 桂列华
+ * @Date 2017/10/6 8:33.
+ * @Email guiliehua@163.com
  */
 public class RegistryServer {
     private static final Logger logger = LogManager.getLogger(RegistryServer.class);
+
+    public static void main(String[] args){
+        try {
+            ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+            start();
+        } catch (UnknownHostException e) {
+            logger.error(e);
+        } catch (InterruptedException e) {
+            logger.error(e);
+        }
+    }
 
     public static void start() throws UnknownHostException, InterruptedException {
         ServerBootstrap serverBootstrap = new ServerBootstrap();

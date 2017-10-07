@@ -9,7 +9,9 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 
 /**
- * Created by gui on 2017/9/16.
+ * @Author 桂列华
+ * @Date 2017/10/6 8:33.
+ * @Email guiliehua@163.com
  */
 public class HammerContext implements ApplicationContextAware, ApplicationListener<ContextRefreshedEvent>{
     Logger logger = LogManager.getLogger(HammerContext.class);

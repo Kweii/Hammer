@@ -15,7 +15,7 @@ import java.util.*;
 public class JedisPoolFactory<T> {
     private static Logger logger = LogManager.getLogger(JedisPoolFactory.class);
 
-    private static Pool jedisPool;
+    private static Pool pool;
 
     static {
         ResourceBundle customBundle = null;
@@ -76,14 +76,14 @@ public class JedisPoolFactory<T> {
         List<Map.Entry<String, Integer>> ipPortPairs = getIpPortPairs(customBundle);
         if (ipPortPairs.size() == 1){
             Map.Entry<String, Integer> ipPortPair = ipPortPairs.get(0);
-            jedisPool = new JedisPool(ipPortPair.getKey(), ipPortPair.getValue());
+            pool = new JedisPool(ipPortPair.getKey(), ipPortPair.getValue());
 
         }else if (ipPortPairs.size()>1){
             List<JedisShardInfo> shardInfoList = new LinkedList<JedisShardInfo>();
             for (Map.Entry<String, Integer> ipPortPair : ipPortPairs){
                 shardInfoList.add(new JedisShardInfo(ipPortPair.getKey(), ipPortPair.getValue()));
             }
-            jedisPool = new ShardedJedisPool(config, shardInfoList);
+            pool = new ShardedJedisPool(config, shardInfoList);
 
         }else{
             throw new RuntimeException("IP、port配置信息异常");
@@ -109,8 +109,8 @@ public class JedisPoolFactory<T> {
         return new LinkedList<Map.Entry<String, Integer>>(ipPortPairs.entrySet());
     }
 
-    public static <T extends Pool<T>> T getJedisPool(){
-        return (T)jedisPool;
+    public static <T extends Pool> T getPool(){
+        return (T) pool;
     }
 
 }

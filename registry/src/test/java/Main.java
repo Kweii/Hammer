@@ -2,7 +2,7 @@ import com.hammer.registry.persistence.impl.redis.JedisPoolFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import redis.clients.jedis.Jedis;
-import redis.clients.util.Pool;
+import redis.clients.jedis.JedisPool;
 
 import java.net.UnknownHostException;
 
@@ -13,9 +13,9 @@ import java.net.UnknownHostException;
 public class Main {
     private static final Logger logger = LogManager.getLogger(Main.class);
     public static void main(String[] args) throws UnknownHostException, InterruptedException {
-        Pool jedisPool = JedisPoolFactory.getJedisPool();
+        JedisPool jedisPool = JedisPoolFactory.getPool();
         Jedis jedis = (Jedis)jedisPool.getResource();
-        //jedis.set("say", "hello");
+        jedis.set("say", "hello");
         logger.info(jedis.get("say"));
         jedisPool.getResource();
 

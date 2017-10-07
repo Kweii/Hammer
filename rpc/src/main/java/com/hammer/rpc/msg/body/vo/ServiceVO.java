@@ -1,5 +1,7 @@
 package com.hammer.rpc.msg.body.vo;
 
+import com.hammer.rpc.common.Constant;
+
 /**
  * @Author 桂列华
  * @Date 2017/10/1 17:25.
@@ -18,6 +20,21 @@ public class ServiceVO {
     private boolean supportDynamicAlias;
     /*提供动态别名时当前节点的本职服务对应的最大阈值，言外之意就是当前节点的值大于该阈值时将不支持动态别名（连最基本的额的本职工作都没有做好，凭什么让你做其他的）*/
     private float threshold;
+
+    public String commonServiceGroup(){
+        return Constant.COMMON_SERVICE_REGISTER_GROUP_PREFIX + interfaze + Constant.SEPARATOR + alias;
+    }
+    public String commonServiceKey(){
+        return ip + Constant.SEPARATOR + port;
+    }
+
+    public String dynamicServiceGroup(){
+        return Constant.DYNAMIC_SERVICE_REGISTER_GROUP_PREFIX + interfaze;
+    }
+
+    public String dynamicServiceKey(){
+        return ip + Constant.SEPARATOR + port;
+    }
 
     public String getInterfaze() {
         return interfaze;
