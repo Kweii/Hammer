@@ -10,6 +10,9 @@ import java.util.List;
  * @Email guiliehua@163.com
  */
 public class RegisterInvocation implements MsgBody {
+    public RegisterInvocation() {
+    }
+
     List<ServiceVO> serviceVOList;
 
     public RegisterInvocation(List<ServiceVO> serviceVOList) {
@@ -18,5 +21,10 @@ public class RegisterInvocation implements MsgBody {
 
     public List<ServiceVO> getServiceVOList() {
         return serviceVOList;
+    }
+
+    public RegisterInvocation setServiceVOList(List<ServiceVO> serviceVOList) {
+        this.serviceVOList = serviceVOList;
+        return this;
     }
 }

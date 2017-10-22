@@ -12,7 +12,7 @@ import java.util.Map;
  * @Email guiliehua@163.com
  */
 public class MsgHeader {
-    public static final int crcCode = 0xABC001;
+    private int crcCode = 0xABC001;
     private int length = -1;
     private MsgEnum msgEnum;
     private byte priority;
@@ -32,6 +32,10 @@ public class MsgHeader {
         return this.crcCode;
     }
 
+    public MsgHeader setCrcCode(int crcCode) {
+        this.crcCode = crcCode;
+        return this;
+    }
 
     public int getLength() {
         return length;

@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/Hammer.iml" filepath="$PROJECT_DIR$/Hammer.iml" />
       <module fileurl="file://$PROJECT_DIR$/core/core.iml" filepath="$PROJECT_DIR$/core/core.iml" />
       <module fileurl="file://$PROJECT_DIR$/monitor/monitor.iml" filepath="$PROJECT_DIR$/monitor/monitor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/provider/provider.iml" filepath="$PROJECT_DIR$/provider/provider.iml" />
       <module fileurl="file://$PROJECT_DIR$/registry/registry.iml" filepath="$PROJECT_DIR$/registry/registry.iml" />
       <module fileurl="file://$PROJECT_DIR$/rpc/rpc.iml" filepath="$PROJECT_DIR$/rpc/rpc.iml" />
     </modules>

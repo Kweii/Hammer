@@ -9,7 +9,7 @@ import java.util.Arrays;
  */
 public class ServiceInvocation implements MsgBody {
 
-    private final String chainId;
+    private String chainId;
     /*方法调用所在接口的名字*/
     private String interfaceName;
     /*被调用方法的名字*/
@@ -20,6 +20,9 @@ public class ServiceInvocation implements MsgBody {
     private Object[] params;
     /*调用方法对应接口版本号*/
     private String alias;
+
+    public ServiceInvocation() {
+    }
 
     public ServiceInvocation(String chainId) {
         this.chainId = chainId;

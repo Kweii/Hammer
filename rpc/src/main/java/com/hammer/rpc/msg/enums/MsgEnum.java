@@ -18,6 +18,9 @@ public enum MsgEnum {
     REGISTER_REQ((byte)31, "注册请求消息"),
     REGISTER_RESP((byte)32, "注册响应消息"),
 
+    SERVICE_DISCOVERY_REQ((byte)41, "服务发现消息"),
+    SERVICE_DISCOVERY_RESP((byte)42, "服务发现响应消息"),
+
     SERVICE_MSG_REQ((byte)91, "业务请求消息"),
     SERVICE_MSG_RESP((byte)92, "业务响应消息");
 

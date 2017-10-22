@@ -27,11 +27,6 @@ public class FastJsonDecoder extends AbstractDecoder {
 
     @Override
     protected Object decode(ChannelHandlerContext ctx, ByteBuf rcvBuffer) throws Exception {
-        ByteBuf frame = (ByteBuf) super.decode(ctx, rcvBuffer);
-        if (frame == null){
-            return null;
-        }
-
         MsgHeader header = decodeHeader(rcvBuffer);
         MsgBody body = decodeBody(rcvBuffer, header.getMsgEnum());
 
@@ -47,7 +42,8 @@ public class FastJsonDecoder extends AbstractDecoder {
     private MsgHeader decodeHeader(ByteBuf rcvBuffer) throws UnsupportedEncodingException {
         MsgHeader header = new MsgHeader();
         /*解码crcCode*/
-        //header.setCrcCode(rcvBuffer.readInt());
+        //rcvBuffer.readInt();
+        header.setCrcCode(rcvBuffer.readInt());
         /*解码消息长度*/
         header.setLength(rcvBuffer.readInt());
         /*解码消息类型*/
@@ -98,19 +94,17 @@ public class FastJsonDecoder extends AbstractDecoder {
      * @return
      */
     private MsgBody decodeBody(ByteBuf rcvBuffer, MsgEnum msgEnum){
-        int bodySize = rcvBuffer.readInt();
-        if (bodySize == 0){
-            return null;
-        }
         MsgBody body = null;
+        int bodySize = rcvBuffer.readInt();
+        if (bodySize != 0){
 
-        byte[] bodyBytes = new byte[bodySize];
-        rcvBuffer.readBytes(bodyBytes);
-        Class targetClazz = getMsgBodyClazz(msgEnum);
+            byte[] bodyBytes = new byte[bodySize];
+            rcvBuffer.readBytes(bodyBytes);
+            Class targetClazz = getMsgBodyClazz(msgEnum);
+            body = JSONObject.parseObject(bodyBytes, targetClazz);
+        }
 
-        body = JSONObject.parseObject(bodyBytes, targetClazz);
         return body;
-
     }
 
     /**

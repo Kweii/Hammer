@@ -6,11 +6,9 @@ import com.hammer.rpc.msg.HammerMsg;
 import com.hammer.rpc.msg.body.MsgBody;
 import com.hammer.rpc.msg.header.MsgHeader;
 import io.netty.buffer.ByteBuf;
-import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
 
 import java.io.UnsupportedEncodingException;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -24,26 +22,17 @@ public class FastJsonEncoder extends AbstractEncoder<HammerMsg> {
 
     public static final String ENCODE_CHAR_SET = "UTF-8";
 
-    public void testEncode(ChannelHandlerContext context, HammerMsg hammerMsg, List<Object> out) throws Exception{
-        this.encode(context, hammerMsg, out);
-    }
-
-
     @Override
-    protected void encode(ChannelHandlerContext context, HammerMsg hammerMsg, List<Object> out) throws Exception {
+    protected void encode(ChannelHandlerContext ctx, HammerMsg hammerMsg, ByteBuf sendBuffer) throws Exception {
         if (hammerMsg==null || hammerMsg.getHeader()==null){
             throw new RuntimeException("the hammerMsg is null");
         }
 
         MsgHeader header = hammerMsg.getHeader();
         MsgBody body = hammerMsg.getBody();
-        ByteBuf sendBuffer = Unpooled.buffer();
 
         encodeHeader(header, sendBuffer);
         encodeBody(body, sendBuffer);
-
-        out.add(sendBuffer);
-
     }
 
     private void encodeHeader(MsgHeader header, ByteBuf sendBuffer) throws UnsupportedEncodingException {
@@ -77,13 +66,9 @@ public class FastJsonEncoder extends AbstractEncoder<HammerMsg> {
     }
 
     private void encodeBody(MsgBody body, ByteBuf sendBuffer){
-        if (body != null){
-            encodeObj(body, sendBuffer);
+        encodeObj(body, sendBuffer);
+        sendBuffer.setInt(HAMMER_MSG_LENGTH_POS_IDX, sendBuffer.readableBytes());
 
-        }else{
-            sendBuffer.writeInt(0);
-            sendBuffer.setInt(HAMMER_MSG_LENGTH_POS_IDX, sendBuffer.readableBytes());
-        }
     }
 
     private void encodeObj(Object obj, ByteBuf sendBuffer){
@@ -91,13 +76,18 @@ public class FastJsonEncoder extends AbstractEncoder<HammerMsg> {
         int lengthPosIdx = sendBuffer.writerIndex();
         /*暂时占位obj长度位置*/
         sendBuffer.writeBytes(TEMP_LENGTH_PLACE_HOLDER);
+        byte[] objBytes = new byte[0];
+        if (obj != null){
 
-        /*编码obj*/
-        byte[] objBytes = JSONObject.toJSONBytes(obj);
-        /*写入obj*/
-        sendBuffer.writeBytes(objBytes);
+            /*编码obj*/
+            objBytes = JSONObject.toJSONBytes(obj);
+            /*写入obj*/
+            sendBuffer.writeBytes(objBytes);
 
+        }
         /*写入obj的长度*/
         sendBuffer.setInt(lengthPosIdx, objBytes.length);
+
     }
+
 }

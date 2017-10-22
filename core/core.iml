@@ -12,6 +12,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="provider" />
+    <orderEntry type="library" name="Maven: com.hammer:provider:1.0-SNAPSHOT" level="project" />
     <orderEntry type="module" module-name="rpc" />
     <orderEntry type="library" name="Maven: com.google.protobuf:protobuf-java:3.4.0" level="project" />
     <orderEntry type="library" name="Maven: io.netty:netty-all:5.0.0.Alpha2" level="project" />

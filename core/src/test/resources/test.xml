@@ -15,13 +15,13 @@
 		http://www.hammer.com/schema/hammer http://www.hammer.com/schema/hammer/hammer.xsd"
        default-lazy-init="true">
 
-       <hammer:registry ip="192.168.34.33" port="901015"/>
-
-       <hammer:registry ip="192.168.34.33" port="901015"/>
-
-       <hammer:consumer id="service" interface="service.Service"  alias="1.0"/>
+       <hammer:registry ip="192.168.0.101" port="9527"/>
 
        <hammer:consumer id="service2" interface="service.Service2" alias="1.2"/>
+       
+       <hammer:provider interface="service.Service" ref="service" alias="test"/>
+
+       <bean id="service" class="service.impl.ServiceImple"/>
 
 
 </beans>

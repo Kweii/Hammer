@@ -1,5 +1,7 @@
 package com.hammer.core.springExt.bean;
 
+import com.hammer.rpc.msg.body.vo.ServiceVO;
+
 /**
  * @Author 桂列华
  * @Date 2017/10/6 8:33.
@@ -66,5 +68,15 @@ public class ProviderBean {
     public ProviderBean setThreshold(float threshold) {
         this.threshold = threshold;
         return this;
+    }
+
+    public ServiceVO convert(){
+        ServiceVO serviceVO = new ServiceVO();
+        serviceVO.setInterfaze(this.interfaze)
+                .setAlias(this.alias)
+                .setSupportDynamicAlias(this.supportDynamicAlias)
+                .setThreshold(this.threshold);
+
+        return serviceVO;
     }
 }
